@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+
+function validate()
+{
+let name=
+document.getElementById("name").value;
+
+let pattern=/^[A-Za-z ]+$/;
+
+if(pattern.test(name))
+{
+alert("Valid Name");
+}
+else
+{
+alert("Invalid Name");
+}
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Form Validation</h2>
+
+Name:
+<input type="text" id="name">
+
+<button onclick="validate()">
+Validate
+</button>
+
+</body>
+</html>
