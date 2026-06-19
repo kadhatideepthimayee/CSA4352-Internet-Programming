@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElectroShop - Online Gadget Store</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+header{
+    background:#1e3a8a;
+    color:white;
+    padding:20px;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(to right,#1e3a8a,#2563eb);
+    color:white;
+}
+
+.hero h1{
+    font-size:45px;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.products{
+    width:90%;
+    margin:auto;
+    padding:40px 0;
+}
+
+.products h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:15px 0;
+}
+
+.price{
+    color:#2563eb;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.card button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin:15px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.card button:hover{
+    background:#1e40af;
+}
+
+.cart{
+    width:90%;
+    margin:20px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+.cart h2{
+    margin-bottom:15px;
+}
+
+.cart-item{
+    margin-bottom:10px;
+}
+
+.total{
+    font-size:22px;
+    font-weight:bold;
+    color:green;
+    margin-top:10px;
+}
+
+.checkout-btn{
+    margin-top:15px;
+    background:green;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:30px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">🛒 ElectroShop</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Products</a></li>
+<li><a href="#">Cart</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Electronic Gadget Store</h1>
+<p>Buy Latest Gadgets at Best Prices</p>
+</section>
+
+<section class="products">
+
+<h2>Popular Gadgets</h2>
+
+<div class="product-grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800" alt="">
+<h3>Smartphone</h3>
+<p class="price">₹25,999</p>
+<button onclick="addToCart('Smartphone',25999)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800" alt="">
+<h3>Laptop</h3>
+<p class="price">₹55,999</p>
+<button onclick="addToCart('Laptop',55999)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800" alt="">
+<h3>Smart Watch</h3>
+<p class="price">₹7,999</p>
+<button onclick="addToCart('Smart Watch',7999)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800" alt="">
+<h3>Headphones</h3>
+<p class="price">₹2,999</p>
+<button onclick="addToCart('Headphones',2999)">Add to Cart</button>
+</div>
+
+</div>
+
+</section>
+
+<section class="cart">
+
+<h2>Shopping Cart</h2>
+
+<div id="cartItems">
+No items added.
+</div>
+
+<div class="total">
+Total: ₹<span id="total">0</span>
+</div>
+
+<button class="checkout-btn" onclick="checkout()">
+Checkout
+</button>
+
+<p id="message"></p>
+
+</section>
+
+<footer>
+<p>© 2026 ElectroShop - Online Gadget Shopping System</p>
+</footer>
+
+<script>
+
+let total = 0;
+let cart = [];
+
+function addToCart(product,price){
+
+cart.push(product);
+total += price;
+
+displayCart();
+}
+
+function displayCart(){
+
+let cartDiv = document.getElementById("cartItems");
+
+cartDiv.innerHTML = "";
+
+cart.forEach(item=>{
+cartDiv.innerHTML +=
+`<div class="cart-item">✔ ${item}</div>`;
+});
+
+document.getElementById("total").innerText = total;
+}
+
+function checkout(){
+
+if(cart.length===0){
+alert("Cart is Empty!");
+return;
+}
+
+document.getElementById("message").innerHTML =
+"<h3 style='color:green'>Order Placed Successfully!</h3>";
+
+cart=[];
+total=0;
+
+displayCart();
+
+document.getElementById("cartItems").innerHTML =
+"No items added.";
+
+document.getElementById("total").innerText=0;
+}
+
+</script>
+
+</body>
+</html>

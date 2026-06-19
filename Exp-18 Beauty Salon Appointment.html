@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Beauty Spa</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#faf6ff;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,#8e44ad,#ff69b4);
+color:white;
+padding:20px 50px;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+}
+
+.hero{
+text-align:center;
+padding:90px 20px;
+background:linear-gradient(rgba(142,68,173,.8),
+rgba(255,105,180,.8));
+color:white;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:50px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:30px;
+color:#8e44ad;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:50px;
+}
+
+.stat-card{
+background:white;
+padding:25px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.stat-card h2{
+color:#ff69b4;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-bottom:50px;
+}
+
+.service-card{
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.service-card:hover{
+transform:translateY(-8px);
+}
+
+.service-card h3{
+color:#8e44ad;
+margin-bottom:10px;
+}
+
+.booking-form{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+label{
+display:block;
+margin-bottom:5px;
+font-weight:bold;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+button{
+background:#ff69b4;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#e84393;
+}
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:50px;
+}
+
+.review{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.success{
+margin-top:20px;
+color:green;
+font-weight:bold;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<div class="logo">💎 Luxury Beauty Spa</div>
+<div>Online Appointment Booking</div>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Glow With Confidence</h1>
+<p>Premium Salon & Spa Services For Every Occasion</p>
+</section>
+
+<div class="container">
+
+<h2 class="section-title">Why Choose Us?</h2>
+
+<div class="stats">
+
+<div class="stat-card">
+<h2>5000+</h2>
+<p>Happy Clients</p>
+</div>
+
+<div class="stat-card">
+<h2>25+</h2>
+<p>Beauty Experts</p>
+</div>
+
+<div class="stat-card">
+<h2>15+</h2>
+<p>Years Experience</p>
+</div>
+
+<div class="stat-card">
+<h2>50+</h2>
+<p>Services</p>
+</div>
+
+</div>
+
+<h2 class="section-title">Our Services</h2>
+
+<div class="services">
+
+<div class="service-card">
+<h3>Hair Styling</h3>
+<p>Professional haircuts and styling.</p>
+</div>
+
+<div class="service-card">
+<h3>Bridal Makeup</h3>
+<p>Luxury bridal makeover packages.</p>
+</div>
+
+<div class="service-card">
+<h3>Facial Treatment</h3>
+<p>Healthy glowing skin treatments.</p>
+</div>
+
+<div class="service-card">
+<h3>Manicure & Pedicure</h3>
+<p>Luxury nail care services.</p>
+</div>
+
+<div class="service-card">
+<h3>Hair Coloring</h3>
+<p>Trendy hair color solutions.</p>
+</div>
+
+<div class="service-card">
+<h3>Spa Therapy</h3>
+<p>Relaxing full body spa treatments.</p>
+</div>
+
+</div>
+
+<h2 class="section-title">Book Appointment</h2>
+
+<div class="booking-form">
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" id="name">
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" id="email">
+</div>
+
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" id="phone">
+</div>
+
+<div class="form-group">
+<label>Select Service</label>
+<select id="service">
+<option>Hair Styling</option>
+<option>Bridal Makeup</option>
+<option>Facial Treatment</option>
+<option>Spa Therapy</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Appointment Date</label>
+<input type="date" id="date">
+</div>
+
+<div class="form-group">
+<label>Appointment Time</label>
+<input type="time" id="time">
+</div>
+
+<div class="form-group">
+<label>Notes</label>
+<textarea id="notes"></textarea>
+</div>
+
+<button onclick="bookAppointment()">
+Book Appointment
+</button>
+
+<div id="confirmation"></div>
+
+</div>
+<script>
+
+function bookAppointment(){
+
+let name =
+document.getElementById("name").value;
+
+let service =
+document.getElementById("service").value;
+
+let date =
+document.getElementById("date").value;
+
+let time =
+document.getElementById("time").value;
+
+if(name==="" || date==="" || time===""){
+alert("Please fill all required fields");
+return;
+}
+
+let appointmentId =
+"SPA" +
+Math.floor(Math.random()*100000);
+
+document.getElementById(
+"confirmation"
+).innerHTML =
+
+`<p class="success">
+
+✅ Appointment Confirmed
+
+<br><br>
+
+Appointment ID :
+${appointmentId}
+
+<br>
+
+Customer :
+${name}
+
+<br>
+
+Service :
+${service}
+
+<br>
+
+Date :
+${date}
+
+<br>
+
+Time :
+${time}
+
+</p>`;
+
+}
+
+</script>
+
+<div class="container">
+
+<h2 class="section-title">
+Customer Reviews
+</h2>
+
+<div class="testimonials">
+
+<div class="review">
+⭐⭐⭐⭐⭐
+<p>
+Amazing service and friendly staff.
+</p>
+<b>- Sophia</b>
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐
+<p>
+Best bridal makeup experience ever.
+</p>
+<b>- Emma</b>
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐
+<p>
+Professional spa and beauty experts.
+</p>
+<b>- Olivia</b>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Luxury Beauty Spa | All Rights Reserved
+</footer>
+
+</body>
+</html>
