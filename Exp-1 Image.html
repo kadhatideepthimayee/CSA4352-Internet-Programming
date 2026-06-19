@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Mapping in HTML</title>
+</head>
+<body>
+
+<h1 align="center">Image Mapping Example</h1>
+
+<img src="computer.jpg"
+     alt="Computer Image"
+     usemap="#computermap"
+     width="600"
+     height="400">
+
+<map name="computermap">
+
+    <!-- Monitor Area -->
+    <area shape="rect"
+          coords="150,50,450,220"
+          href="https://www.google.com"
+          target="_blank"
+          alt="Monitor">
+
+    <!-- Keyboard Area -->
+    <area shape="rect"
+          coords="150,250,450,320"
+          href="https://www.wikipedia.org"
+          target="_blank"
+          alt="Keyboard">
+
+    <!-- Mouse Area -->
+    <area shape="circle"
+          coords="500,280,40"
+          href="https://www.youtube.com"
+          target="_blank"
+          alt="Mouse">
+
+</map>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+
+function saveData()
+{
+let name=
+document.getElementById("name").value;
+
+let email=
+document.getElementById("email").value;
+
+document.getElementById("result").innerHTML=
+
+"Name : "+name+
+"<br>Email : "+email+
+"<br><br>Data Stored Successfully";
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Student Registration Form</h2>
+
+Name:
+<input type="text" id="name">
+
+<br><br>
+
+Email:
+<input type="email" id="email">
+
+<br><br>
+
+<button onclick="saveData()">
+Save
+</button>
+
+<br><br>
+
+<div id="result"></div>
+
+</body>
+</html>

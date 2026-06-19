@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>People's Opinion Poll</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f4f4f4;
+    text-align:center;
+    padding:50px;
+}
+
+.container{
+    background:white;
+    width:500px;
+    margin:auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+h1{
+    color:#0077cc;
+}
+
+button{
+    background:#0077cc;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    margin-top:15px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+button:hover{
+    background:#005fa3;
+}
+
+.result{
+    margin-top:20px;
+    text-align:left;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>People's Opinion Survey</h1>
+
+<h3>Which technology interests you the most?</h3>
+
+<input type="radio" name="vote" value="AI"> Artificial Intelligence<br><br>
+
+<input type="radio" name="vote" value="Cloud"> Cloud Computing<br><br>
+
+<input type="radio" name="vote" value="Cyber"> Cyber Security<br><br>
+
+<input type="radio" name="vote" value="IoT"> Internet of Things<br><br>
+
+<button onclick="submitVote()">Submit Vote</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+let votes = {
+    AI:0,
+    Cloud:0,
+    Cyber:0,
+    IoT:0
+};
+
+function submitVote(){
+
+let selected =
+document.querySelector('input[name="vote"]:checked');
+
+if(selected==null){
+    alert("Please select an option");
+    return;
+}
+
+votes[selected.value]++;
+
+showResults();
+}
+
+function showResults(){
+
+let total =
+votes.AI +
+votes.Cloud +
+votes.Cyber +
+votes.IoT;
+
+document.getElementById("result").innerHTML =
+`
+<h3>Poll Results</h3>
+
+AI : ${votes.AI} Votes<br><br>
+
+Cloud Computing : ${votes.Cloud} Votes<br><br>
+
+Cyber Security : ${votes.Cyber} Votes<br><br>
+
+Internet of Things : ${votes.IoT} Votes<br><br>
+
+Total Votes : ${total}
+`;
+}
+
+</script>
+
+</body>
+</html>
